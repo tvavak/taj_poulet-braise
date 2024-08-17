@@ -1,0 +1,753 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Poulet Braisé Taj</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="icon" type="image/png" href="Logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      /* Include your CSS styles here */
+      .filter-btn {
+        background-color: #000000;
+        color: #f9f5f0;
+        border: none;
+        padding: 10px 16px; /* Increased padding for better touch targets */
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        font-size: 1em;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Added subtle shadow */
+        
+      }
+
+      .filter-btn:hover {
+        background-color: #333;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+      }
+
+      .filter-dropdown {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 5px;
+        overflow: hidden;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: fadeIn 0.3s ease-in-out; /* Fade-in animation */
+      }
+
+      .filter-dropdown button {
+        color: #000000;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .filter-dropdown button:hover {
+        background-color: #f1f1f1;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Additional CSS for menu items */
+      .menu-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        aspect-ratio: 1 / 1;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .menu-item:hover {
+        transform: scale(1.05);
+      }
+
+      .menu-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .menu-item-title {
+        color: #fff;
+        transition: opacity 0.3s ease; /* Ajout de transition pour l'effet de disparition */
+      }
+
+      .menu-item:hover img {
+        transform: scale(1.1);
+        animation: hoverEffect 0.5s ease-in-out;
+      }
+
+      .menu-item-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 10px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .menu-item:hover .menu-item-title {
+        opacity: 0; /* Masquer le titre lors du survol */
+      }
+
+      .menu-item-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      .menu-item-description {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+  </style>
+</head>
+<body>
+    <header class="header">
+      <div class="logo-container">
+        <img src="cropped_image.png" alt="Logo du restaurant" class="logo-image">
+        <div class="logo-text">Poulet Braisé Taj</div> 
+          </div> 
+          <nav class="nav">
+            <a href="index.html">Accueil</a>
+          <a href="services.html">Menu</a>
+          <a href="apropos.html">À propos</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main container">
+        <h3>Notre Menu</h3>
+        
+        <div class="filter-container">
+          <button class="filter-btn" id="filterBtn">Filtrer par catégorie</button>
+          <div class="filter-dropdown" id="filterDropdown">
+              <button id="filterAll" data-filter="all">Tout afficher</button>
+              <button data-filter="poulet-braise">Poulet Braisé</button>
+              <button data-filter="couscous">Couscous</button>
+              <button data-filter="accompagnement">Accompagnement</button>
+              <button data-filter="burger">Burger</button>
+              <button data-filter="boisson">Boisson</button>
+              <button data-filter="dessert">Dessert</button>
+              <button data-filter="menu-enfant">Menu Enfant</button>
+          </div>
+        </div>
+        <!-- Section pour le menu de Poulet Braisé -->
+        <section id="menu-poulet" class="menu">
+            <h4 class="slide-in-up"data-category="poulet-braise">Menu Poulet Braisé</h4>
+            <div class="menu-grid">
+                <div class="menu-item" data-category="poulet-braise">
+                    <img src="pb.webp" alt="1/2 Poulet Braisé" width="250" height="250">
+                        <h2 class="menu-item-title">1/2 Poulet </h2> 
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">Seul 5.00€</p>
+                        <p class="menu-item-description">Menu 9.00€ (accompagnement au choix + canette)</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="poulet-braise">
+                    <img src="tabaka-poulet-au-four-aux-epices-1-1920x1280.jpg" alt="1 Poulet Braisé" width="250" height="250">
+                        <h2 class="menu-item-title">1 Poulet Braisé</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">Seul 9.00€</p>
+                        <p class="menu-item-description">Menu 15.00€ (accompagnement au choix + Bouteille 1L5)</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="poulet-braise">
+                    <img src="menu-poulet-family_1920.webp" alt="2 Poulet Braisé" width="250" height="250">
+                        <h2 class="menu-item-title">2 Poulet Braisé</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">Seul 16,50€</p>
+                        <p class="menu-item-description">Menu Famille 25.00€ (2 accompagnements au choix + Bouteille 1L5)</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="poulet-braise">
+                    <img src="poulet.jpg" alt="3 Poulet Braisé" width="250" height="250">
+                        <h2 class="menu-item-title">3 Poulet Braisé</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">25.00€ (supplément non compris)</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="poulet-braise">
+                    <img src="cuisse.jpg" alt="Cuisse Braisée" width="250" height="250">
+                        <h2 class="menu-item-title">Cuisse Braisée</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">Menu 7.00€ (accompagnement au choix + canette)</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="poulet-braise">
+                    <img src="cuisse.jpg" alt="Cuisse Braisée" width="250" height="250">
+                        <h2 class="menu-item-title">Cuisse Braisée</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">1 Cuisse 3.00€</p>
+                        <p class="menu-item-description">2 Cuisses 5.50€</p>
+                        <p class="menu-item-description">3 Cuisses 8.00€</p>
+                        <p class="menu-item-description">4 Cuisses 10.50€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="poulet-braise" width="250" height="250">
+                    <img src="delicieux-poulet-table_144627-8758.jpg" alt="Poulet Rôti">
+                        <h2 class="menu-item-title">Poulet Rôti</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">Seul 14€</p>
+                        <p class="menu-item-description">Menu 25.00€ (2 accompagnements au choix + Bouteille 1L5)</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="poulet-braise">
+                    <img src="crispy-crunchy-chicken-tenders-169314.jpg" alt="Crispy Tenders" width="250" height="250">
+                        <h2 class="menu-item-title">Crispy Tenders</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">5 pièces 5.50€</p>
+                        <p class="menu-item-description">5 pièces + boisson 8.00€</p>
+                    </div>
+                </div>
+        <div class="menu-item" data-category="poulet-braise">
+            <img src="chicken-nuggets-resize-500.webp" alt="Crispy Tenders" width="250" height="250">
+                <h2 class="menu-item-title">Nuggets</h2>
+                <div class="menu-item-overlay">
+                <p class="menu-item-description">7 pièces 5.00€</p>
+                <p class="menu-item-description">7 pièces + boisson 5.90€</p>
+            </div>
+        </div>
+                
+                    </div>
+                </div>
+<section>
+                
+                
+        <!-- Section pour le menu de Couscous -->
+        <section id="menu-couscous" class="menu">
+            <h4 class="slide-in-up" data-category="couscous">Menu Couscous</h4>
+            <div class="menu-grid">
+                <div class="menu-item" data-category="couscous">
+                    <img src="coucous.jpg" alt="Couscous Royal">
+                        <h2 class="menu-item-title">Couscous Royal</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">15.00€ (Brochette de poulet, merguez, morceau d'agneau, semoule, bouillon de légumes frais, pois chiche et raisins secs)</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="couscous">
+                    <img src="brochettes-de-poulet-marine-sur-lit-de-couscous-a-la-coriandre-et-au-citron-b2x7jy.jpg" alt="Couscous Poulet">
+                        <h2 class="menu-item-title">Couscous brochette de Poulet</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">11.00€ (2 Brochettes de poulet, semoule, bouillon de légumes frais, pois chiche et raisins secs)</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="couscous">
+                    <img src="couscous-agneau-5-chefs-rougaibi.jpg" alt="Couscous Agneau">
+                        <h2 class="menu-item-title">Couscous Agneau</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">12.50€(1 morceau d'agneau, semoule, bouillon de légumes frais, pois chiche et raisins secs)</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="couscous">
+                    <img src="couscous-royal-poulet-merguez-2023.jpg" alt="Couscous Merguez">
+                        <h2 class="menu-item-title">Couscous Merguez</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">10.50€ (2 merguez, semoule, bouillon de légumes frais, pois chiche et raisins secs)</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="couscous">
+                    <img src="couss.avif" alt="Couscous Végétarien">
+                        <h2 class="menu-item-title">Couscous Végétarien</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">8.00€ (Servi avec sa semoule, son bouillon de légumes frais, pois chiche et raisins secs)</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="couscous">
+                  <img src="i146209-https-www-cuisineaz-com-recettes-couscous-aux-boulettes-et-kefta-106212-aspx.jpeg" alt="Couscous Kefta">
+                      <h2 class="menu-item-title">Couscous Kefta</h2>
+                      <div class="menu-item-overlay">
+                      <p class="menu-item-description">11.50€(4 boulettes de kefta (viande hachée), semoule, bouillon de légumes frais, pois chiche et raisins secs)</p>
+                  </div>
+              </div>
+              <div class="menu-item" data-category="couscous">
+                <img src="61E1185E-A2FE-4F74-AA1B-07794BF998FE.jpg" alt="Couscous Cuisse de poulet">
+                    <h2 class="menu-item-title">Couscous Cuisse de poulet</h2>
+                    <div class="menu-item-overlay">
+                    <p class="menu-item-description">10.50€(1 Cuisse de poulet grillée, semoule, bouillon de légumes frais, pois chiche et raisins secs)</p>
+                </div>
+            </div>
+            </div>
+<!-- Section pour le menu de Burger -->
+    <!-- Contenu de l'élément -->
+</div>
+<section id="menu-Burger" class="menu">
+  <h4 class="slide-in-up"data-category="burger">Menu Burger - sandwich - Assiete </h4>
+  <div class="menu-grid">
+    <div class="menu-item" data-category="burger">
+      <img src="cheeese.jpg" alt="Burger Classique">
+          <h2 class="menu-item-title">Cheese</h2>
+          <div class="menu-item-overlay">
+          <p class="menu-item-description">Seul 2.50€</p>
+          <p class="menu-item-description">Menu 5.00€ (Frites + canette)</p>                  </div>
+      </div>
+      <div class="menu-item" data-category="burger">
+        <img src="dbl cheese.jpg" alt="Burger Poulet">
+            <h2 class="menu-item-title">Double Cheese</h2>
+            <div class="menu-item-overlay">
+            <p class="menu-item-description">Seul 4.00€</p>
+            <p class="menu-item-description">Menu 6.00€ (Frites + canette)</p>
+          </div>
+      </div>
+      <div class="menu-item" data-category="burger">
+        <img src="sguh874cu8o41.jpg" alt="Burger Agneau">
+            <h2 class="menu-item-title">Triple Cheese</h2>
+            <div class="menu-item-overlay">
+            <p class="menu-item-description">Seul 5.50€</p>
+            <p class="menu-item-description">Menu 6.50€ (Frites + canette)</p>
+          </div>
+      </div>
+      <div class="menu-item" data-category="burger">
+        <img src="Crispy-Fish-Burgers-FT-RECIPE0423-50a8e69285554174a44c6709f9fac010.jpg" alt="Burger Végétarien">
+                      <h2 class="menu-item-title">Fish Burger</h2>
+                      <div class="menu-item-overlay">
+                      <p class="menu-item-description">Seul 4.00€</p>
+                      <p class="menu-item-description">Menu 5.00€ (Frites + canette)</p>
+          </div>
+      </div>
+      <div class="menu-item" data-category="burger">
+         <img src="téléchargement (4).jpg" alt="Burger Cheddar">
+                      <h2 class="menu-item-title">Chicken Burger</h2>
+                      <div class="menu-item-overlay">
+                      <p class="menu-item-description">Seul 4.00€</p>
+                      <p class="menu-item-description">Menu 5.00€ (Frites + canette)</p>  
+          </div>
+      </div>
+      <div class="menu-item" data-category="burger">
+        <img src="images (2).jpg" alt="Burger Bacon">
+                      <h2 class="menu-item-title">Royal Cheese</h2>
+                      <div class="menu-item-overlay">
+                      <p class="menu-item-description">Seul 5.50€</p>
+                      <p class="menu-item-description">Menu 7.00€ (Frites + canette)</p> 
+
+                    </div>
+                  </div>
+                  <div class="menu-item" data-category="burger">
+                    <img src="624aab09c03519.00921997208701126.jpg" alt="Burger Poulet Grillé">
+                      <h2 class="menu-item-title">Le triple</h2>
+                      <div class="menu-item-overlay">
+                      <p class="menu-item-description">Seul 6.00€</p>
+                      <p class="menu-item-description">Menu 7.50€ (Frites + canette)</p>
+
+                                </div>
+                              </div>
+                              <div class="menu-item" data-category="burger">
+                                <img src="4673c86e-f717-4967-8086-880dd30c45e0-1600.png" alt="Burger Poulet Grillé">
+                    <h2 class="menu-item-title">Merguez</h2>
+                    <div class="menu-item-overlay">
+                    <p class="menu-item-description">Seul 5.50€</p>
+                    <p class="menu-item-description">Menu 7.00€ (Frites + canette)</p>
+
+                                            </div>
+                                          </div>
+                                          <div class="menu-item" data-category="burger">
+                                            <img src="kebab-de-poulet-aux-epices-et-coco-salsa-coriandre.jpg" alt="Burger Poulet Grillé">
+                  <h2 class="menu-item-title">Poulet braisé</h2>
+                  <div class="menu-item-overlay">
+                  <p class="menu-item-description">Seul 5.50€</p>
+                  <p class="menu-item-description">Menu 7.00€ (Frites + canette)</p> 
+    </div>
+    <div class="menu-item" data-category="burger">
+      <img src="61E1185E-A2FE-4F74-AA1B-07794BF998FE.jpg" alt="Couscous Cuisse de poulet">
+          <h2 class="menu-item-title">Couscous Cuisse de poulet</h2>
+          <div class="menu-item-overlay">
+          <p class="menu-item-description">12.50€(1 Cuisse de poulet grillée, semoule, bouillon de légumes frais, pois chiche et raisins secs)</p>
+      </div>
+  </div>
+  </div>
+  <div class="menu-item" data-category="burger">
+    <img src="demi.jpg" alt="Couscous Cuisse de poulet">
+        <h2 class="menu-item-title">Assiette 1/2 Poulet</h2>
+        <div class="menu-item-overlay">
+        <p class="menu-item-description">10.00€ (2 accompagnements au choix)</p>
+    </div>
+</div>
+
+<div class="menu-item" data-category="burger">
+    <img src="61E1185E-A2FE-4F74-AA1B-07794BF998FE.jpg" alt="Couscous Cuisse de poulet">
+        <h2 class="menu-item-title">Assiette Cuisse de Poulet</h2>
+        <div class="menu-item-overlay">
+        <p class="menu-item-description">8.00€ (2 accompagnements au choix)</p>
+    </div>
+</div>
+
+        
+          </div>
+          </div>
+          <section id="menu-accompagnements" class="menu">
+            <h4 class="slide-in-up" data-category="accompagnement">Menu Accompagnements</h4>
+            <div class="menu-grid">
+                <div class="menu-item" data-category="accompagnement">
+                    <img src="pommes-de-terre-frites-recettes-mordu.webp" alt="Frites">
+                        <h2 class="menu-item-title">Frites</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">3€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="accompagnement">
+                    <img src="frite-cheddar-oignon-frit-recette-burger-king.webp" alt="Frites Cheddar">
+                        <h2 class="menu-item-title">Frites Cheddar</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">4€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="accompagnement">
+                    <img src="pommes-sautees-a-cru-3000x2000.jpg" alt="Pommes de Terre Sautées">
+                        <h2 class="menu-item-title">Pommes de Terre Sautées</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">3€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="accompagnement">
+                    <img src="i25950-riz-au-poulet-et-petit-pois-aromatise-au-safran.webp" alt="Riz">
+                        <h2 class="menu-item-title">Riz</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">3€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="accompagnement">
+                    <img src="0002-salade-verte-vinaigrette-echalotes.jpg" alt="Salade">
+                        <h2 class="menu-item-title">Salade</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">4€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="accompagnement">
+                    <img src="haricot-vert.jpg" alt="Haricot Vert">
+                        <h2 class="menu-item-title">Haricot Vert</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">3,5€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="accompagnement">
+                    <img src="allocos.jpg" alt="Allocos">
+                        <h2 class="menu-item-title">Allocos</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">3,5€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="accompagnement">
+                    <img src="ma-salade-cesar.jpg" alt="Salade Poulet Braisé">
+                        <h2 class="menu-item-title">Salade Poulet Braisé</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">6,50€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="accompagnement">
+                    <img src="portion-frites-sauce-au-fromage-creme-cheddar-bacon-frit-morceaux-poulet_449839-8329.avif" alt="Frites Cheddar Poulet Braisé">
+                        <h2 class="menu-item-title">Frites Cheddar Poulet Braisé</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">7€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="accompagnement">
+                    <img src="merguezz.jpg" alt="Merguez">
+                        <h2 class="menu-item-title">1 Merguez</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">2€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="accompagnement">
+                    <img src="9043.jpg" alt="Brochette de Poulet">
+                        <h2 class="menu-item-title">1 Brochette de Poulet</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">2,50€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="accompagnement">
+                    <img src="harrira.jpg" alt="Soupe Marocaine Harira">
+                        <h2 class="menu-item-title">1 Soupe Marocaine Harira</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">3,50€</p>
+                    </div>
+                </div>
+            </div>
+
+ 
+        <!-- Section pour le menu de Boissons -->
+        <section id="menu-Boissons" class="menu">
+          <h4 class="slide-in-up"data-category="poulet-braise">Menu Boissons</h4>
+          <div class="menu-grid">
+              <div class="menu-item" data-category="boisson">
+                  <img src="can.png" alt="Canette" width="250" height="250">
+                      <h2 class="menu-item-title">Canette 33cl</h2> 
+                      <div class="menu-item-overlay">
+                      <p class="menu-item-description">1.50€</p>
+                  </div>
+              </div>
+              <div class="menu-item" data-category="boisson">
+                  <img src="50cl.jpg" alt="Bouteille" width="250" height="250">
+                      <h2 class="menu-item-title">Bouteille 50cl</h2>
+                      <div class="menu-item-overlay">
+                      <p class="menu-item-description">1.50€</p>
+                  </div>
+              </div>
+              <div class="menu-item" data-category="boisson">
+                <img src="boissons-bouteilles-1-5L.jpg" alt="Bouteille 1L5" width="250" height="250">
+                    <h2 class="menu-item-title">Bouteille 1,50L</h2>
+                    <div class="menu-item-overlay">
+                    <p class="menu-item-description">3.00€</p>
+                </div>
+            </div>
+            <div class="menu-item" data-category="boisson">
+                <img src="eau.avif" alt="Bouteille" width="250" height="250">
+                    <h2 class="menu-item-title">Bouteille eau 50cl</h2>
+                    <div class="menu-item-overlay">
+                    <p class="menu-item-description">1.00€</p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="boisson">
+                <img src="freez22-tccgfn.jpeg" alt="Bouteille" width="250" height="250">
+                    <h2 class="menu-item-title">Freez 275ml</h2>
+                    <div class="menu-item-overlay">
+                    <p class="menu-item-description">2.00€</p>
+                </div>
+            </div>
+            
+        </section>
+         <!-- Section pour le menu dessert -->
+         <section id="dessert" class="menu">
+            <h4 class="slide-in-up"data-category="dessert">Desserts et Glaces</h4>
+            <div class="menu-grid">
+                <div class="menu-item" data-category="dessert">
+                    <img src="Tarte-au-daim-1.jpg" alt="tarte au daim" width="250" height="250">
+                        <h2 class="menu-item-title">Tarte au daim </h2> 
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">Seul 2.5€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dessert">
+                    <img src="magnum.avif" alt="1 Poulet Braisé" width="250" height="250">
+                        <h2 class="menu-item-title">Magnum amande</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">3.50€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dessert">
+                    <img src="kinder-surprise-20g-x-36.jpg" alt="1 Poulet Braisé" width="250" height="250">
+                        <h2 class="menu-item-title">Kinder surprise</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">2.00€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dessert">
+                    <img src="tarte-nutella.jpg" alt="1 Poulet Braisé" width="250" height="250">
+                        <h2 class="menu-item-title">Tarte Nutella</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">2.50€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dessert">
+                    <img src="Haagen-Dazs-90ml.jpg" alt="1 Poulet Braisé" width="250" height="250">
+                        <h2 class="menu-item-title">Hâagen-Dazs 95ml</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">3.50€</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dessert">
+                    <img src="hagen.jpg" alt="1 Poulet Braisé" width="250" height="250">
+                        <h2 class="menu-item-title">Hâagen-Dazs 460ml</h2>
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">7.00€</p>
+                    </div>
+                </div>
+               
+                    </div>
+                </div>
+          </section>
+
+             <!-- Section pour le menu dessert -->
+             <section id="menu-enfant" class="menu">
+                <h4 class="slide-in-up"data-category="menu-enfant">Menu Enfant</h4>
+                <div class="menu-grid2">
+                    <div class="menu-item2" data-category="menu-enfant">
+                        <img src="menu-enfant.jpg" alt="menu-enfant" width="250" height="250">
+                            <h2 class="menu-item-title">Menu-enfant </h2> 
+                            <div class="menu-item-overlay">
+                            <p class="menu-item-description">Menu 6.00€ (1 cheese + frites + 1 capri-sun ou 1 kinder ou une pom'potes)</p>
+                        </div>
+                </div>
+                <div class="menu-item2" data-category="menu-enfant">
+                    <img src="menu-enfant.jpg" alt="menu-enfant" width="250" height="250">
+                        <h2 class="menu-item-title">Menu-enfant </h2> 
+                        <div class="menu-item-overlay">
+                        <p class="menu-item-description">Menu 6.00€ ( 5 nuggets + frites + 1 capri-sun ou 1 kinder ou une pom'potes)</p>
+                    </div>
+            </div>
+               
+          </section>
+
+           
+                </div>
+          </section>
+            </div>
+          </div>
+      </section>
+
+      <section id="marketplaces" class="marketplaces-section">
+        <h5>Commandez en ligne</h5>
+        <div class="marketplace-links">
+          <a href="https://www.ubereats.com/fr/store/taj-poulet-braise/46_5BAGiRMSI2W5tEDWqUw" target="_blank" class="marketplace-link">
+            <img src="uber.png" alt="UberEats" class="marketplace-logo animated-logo">
+          </a>
+          <a href="https://deliveroo.fr/fr/menu/paris/gennevilliers-port/taj-basly" target="_blank" class="marketplace-link">
+            <img src="deliverooo.png" alt="Deliveroo" class="marketplace-logo animated-logo">
+          </a>
+          <a href="https://www.just-eat.fr/menu/taj-poulet-braise" target="_blank" class="marketplace-link">
+            <img src="justea.png" alt="Just Eat" class="marketplace-logo animated-logo">
+          </a>
+        </div>
+      </section>
+
+      
+
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2023 Poulet Braisé Taj. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Récupérer les éléments du DOM
+    const filterBtn = document.getElementById('filterBtn');
+    const filterDropdown = document.getElementById('filterDropdown');
+    const menuItems = document.querySelectorAll('.menu-item');
+    const sectionTitles = document.querySelectorAll('.section-title');
+
+    // Fonction pour afficher/masquer le menu déroulant des filtres
+    filterBtn.addEventListener('click', function() {
+        filterDropdown.style.display = (filterDropdown.style.display === 'block') ? 'none' : 'block';
+    });
+
+    // Fonction pour filtrer les éléments du menu avec animation
+    filterDropdown.addEventListener('click', function(e) {
+        if (e.target.tagName === 'BUTTON') {
+            const filterValue = e.target.getAttribute('data-filter');
+
+            menuItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    fadeIn(item);
+                } else {
+                    fadeOut(item);
+                }
+            });
+
+            sectionTitles.forEach(title => {
+                if (filterValue === 'all' || title.getAttribute('data-category') === filterValue) {
+                    fadeIn(title);
+                } else {
+                    fadeOut(title);
+                }
+            });
+
+            // Masquer le menu déroulant après la sélection
+            filterDropdown.style.display = 'none';
+        }
+    });
+
+    // Fonction pour faire apparaître un élément en fondu
+    function fadeIn(element) {
+        element.style.opacity = 0;
+        element.style.display = 'block';
+        (function fade() {
+            var val = parseFloat(element.style.opacity);
+            if (!((val += .1) > 1)) {
+                element.style.opacity = val;
+                requestAnimationFrame(fade);
+            }
+        })();
+    }
+
+    // Fonction pour faire disparaître un élément en fondu
+    function fadeOut(element) {
+        element.style.opacity = 1;
+        (function fade() {
+            if ((element.style.opacity -= .1) < 0) {
+                element.style.display = 'none';
+            } else {
+                requestAnimationFrame(fade);
+            }
+        })();
+    }
+
+    // Simuler un clic sur le filtre "Tout afficher" après le chargement de la page
+    const allFilterBtn = Array.from(filterDropdown.querySelectorAll('button')).find(btn => btn.getAttribute('data-filter') === 'all');
+    if (allFilterBtn) {
+        allFilterBtn.click();
+    }
+});
+
+// Le reste du code pour l'animation au défilement reste inchangé
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollElements = document.querySelectorAll('.scroll-animate');
+
+    const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (
+            elementTop <=
+            (window.innerHeight || document.documentElement.clientHeight) / dividend
+        );
+    };
+
+    const displayScrollElement = (element) => {
+        element.classList.add('animate');
+    };
+
+    const hideScrollElement = (element) => {
+        element.classList.remove('animate');
+    };
+
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 1.25)) {
+                displayScrollElement(el);
+            } else {
+                hideScrollElement(el);
+            }
+        });
+    };
+
+    window.addEventListener('scroll', () => {
+        handleScrollAnimation();
+    });
+
+    // Trigger once on load
+    handleScrollAnimation();
+});
+</script>
+    
+
+
+</body>
+</html>

@@ -1,0 +1,524 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Playfair Display', serif;
+  background-color: #f9f5f0;
+  color: #3a3a3a;
+}
+.header {
+  background-color: #000000;
+  color: #f9f5f0;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  animation: slide-in-down 0.5s ease-out;
+
+}
+.logo-container {
+    display: inline-flex;
+    align-items: center;
+    animation: forwards 1.5s ease-out;
+
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 0;
+}
+.nav a {
+  color: #f9f0f0;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s ease;
+  animation: fadeIn 0.5s ease-in-out;
+    animation-fill-mode: both;
+}
+
+.nav a:nth-child(1) { animation-delay: 0.2s; }
+.nav a:nth-child(2) { animation-delay: 0.4s; }
+.nav a:nth-child(3) { animation-delay: 0.6s; }
+.nav a:nth-child(4) { animation-delay: 0.8s; }
+
+.nav a:hover {
+  color: #ffc107;
+}
+
+.main {
+  max-width: 1200px;
+  margin:  auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #ffffff;
+  animation: zoomIn 1s ease-out;
+
+}
+
+h3 {
+  text-align: center;
+  color: #000000; /* Assurez-vous que le code de couleur est correct */
+  font-size: 24px; /* Vous pouvez ajuster cette valeur pour augmenter la taille */
+  font-weight: bold; /* Ajoutez cette ligne si vous souhaitez rendre le texte plus épais */
+  padding-top: 6rem;
+  margin-top: 0px;
+  animation: zoomIn 1s ease-out;
+
+}
+
+h4 {
+  text-align: center;
+  color: #000000; /* Assurez-vous que le code de couleur est correct */
+  font-size: 24px; /* Vous pouvez ajuster cette valeur pour augmenter la taille */
+  font-weight: bold; /* Ajoutez cette ligne si vous souhaitez rendre le texte plus épais */
+  padding-top: 0px;
+  margin-top: 0rem;
+  animation: zoomIn 1s ease-out;
+
+}
+
+h5 {
+  text-align: center;
+  color: #000000; /* Assurez-vous que le code de couleur est correct */
+  font-size: 24px; /* Vous pouvez ajuster cette valeur pour augmenter la taille */
+  font-weight: bold; /* Ajoutez cette ligne si vous souhaitez rendre le texte plus épais */
+  padding-top: 0px;
+  margin-top: 0rem;
+  animation: zoomIn 1s ease-out;
+
+}
+
+
+.filter-container {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  animation: slide-in-up 1s ease-out;
+
+}
+
+.filter-btn {
+  background-color: #000000;
+  color: #f9f5f0;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.filter-btn:hover {
+  background-color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  animation: pulse 1s infinite;
+
+}
+
+#filterDropdown {
+  display: none; /* Le menu déroulant est masqué par défaut */
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 1000; /* S'assurer qu'il est au-dessus des autres éléments */
+}
+.menu-item, h4 {
+  display: 0; /* Masquer les éléments du menu et les titres au départ */
+}
+
+.filter-dropdown button {
+  color: #000000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-dropdown button:hover {
+  background-color: #f1f1f1;
+}
+.menu {
+  padding:  0;
+}
+
+.menu h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  text-align: center;
+  margin: bottom 0;;
+  color: #ffffff;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+
+}
+
+.menu-grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 00px;
+  animation: fadeIn 1.5s ease-in-out;
+
+}
+
+.menu-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  aspect-ratio: 1 / 1;
+  animation: fadeIn 1s ease-in-out;
+  margin: 5px; /* Add space between menu items */
+  animation: zoomIn 0.8s ease-out;
+    animation-fill-mode: both;
+
+}
+
+.menu-item2 {
+  position: static;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 10 40px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  aspect-ratio: 0 / 1;
+  animation: fadeIn 1s ease-in-out;
+  margin: 5px; /* Add space between menu items */
+  animation: zoomIn 0.8s ease-out;
+    animation-fill-mode: both;
+
+}
+
+.menu-item:nth-child(odd) {
+  animation-name: slide-in-left;
+}
+
+.menu-item:nth-child(even) {
+  animation-name: slide-in-right;
+}
+
+
+.menu-item:hover {
+  transform: scale(1.05);
+}
+
+.menu-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.menu-item:hover img {
+  transform: scale(1.1);
+  animation: hoverEffect 0.5s ease-in-out;
+}
+
+.menu-item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  padding: ;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  animation: slideInFromBottom 0.5s ease-out;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+}
+
+.menu-item:hover .menu-item-overlay {
+  transform: translateY(0);
+}
+
+.menu-item-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 10px 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  animation: fadeIn 1s ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: both;
+}
+
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2px; /* Space between grid items */
+}
+
+
+.menu-item-description {
+  font-size: 80%;
+  opacity: 0.8;
+}
+
+.footer {
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Include this part in your CSS file or within a <style> tag */
+.hidden-title {
+  display: none;
+}
+
+.show {
+  display: block !important;
+}
+
+/* Additional styles can go here */
+
+@media (max-width: 768px) {
+  .menu h2 {
+      font-size: 1rem;
+  }
+
+  .menu-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes hoverEffect {
+  from {
+      transform: scale(1);
+  }
+  to {
+      transform: scale(1.05);
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+      transform: translateY(100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.slide-in-up {
+  animation: slide-in-up 1s ease-out;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu h1 {
+    font-size: 2.2rem;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+.marketplaces-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.marketplace-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.marketplace-link {
+  display: inline-block;
+}
+
+.marketplace-logo {
+  width: 100px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.animated-logo {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.marketplace-logo:hover {
+  animation: none;
+  transform: scale(1.2);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hoverEffect {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* Keyframes for slide-in animations */
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+}
+
+/* Slide-in classes */
+.slide-in-left {
+  animation: slide-in-left 1s ease-out;
+}
+
+.slide-in-right {
+  animation: slide-in-right 1s ease-out;
+}
+
+.slide-in-up {
+  animation: slide-in-up 1s ease-out;
+}
+
+.slide-in-down {
+  animation: slide-in-down 1s ease-out;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes rotateIn {
+  from { transform: rotate(-90deg); opacity: 0; }
+  to { transform: rotate(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
